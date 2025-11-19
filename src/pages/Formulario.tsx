@@ -196,7 +196,7 @@ export default function Formulario() {
           <input value={observations} onChange={(e) => setObservations(e.target.value)} type="text" />
         </label>
 
-        <div className="bg-white text-indigo-700 font-semibold py-3 px-8 rounded-full shadow-md hover:bg-indigo-100 transition duration-300">
+        <div className="bg-blue-500 text-black-700 font-semibold py-3 px-8 rounded-full shadow-md hover:bg-blue-400 transition duration-300">
           <button type="submit" >Enviar requerimiento</button>
         </div>
       </form>
