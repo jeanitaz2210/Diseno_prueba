@@ -38,12 +38,12 @@ function generateTicketCode() {
 
 export default function Formulario() {
   const [name, setName] = useState("");
-  const[last, setLast]=useState("");
+  const [last, setLast] = useState("");
   const [address, setAddress] = useState("");
   const [position, setPosition] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [requestType, setRequestType] = useState(requestOptions[0]);
+  const [requestType, setRequestType] = useState(""); // cambiado para mostrar placeholder
   const [otherRequest, setOtherRequest] = useState("");
   const [description, setDescription] = useState("");
   const [file, setFile] = useState<File | null>(null);
@@ -55,6 +55,7 @@ export default function Formulario() {
     const e: Record<string, string> = {};
     if (!name.trim()) e.name = "El Nombre y Apellido es obligatorio.";
     if (!position.trim()) e.position = "Cargo es obligatorio.";
+    if (!requestType) e.requestType = "El tipo de requerimiento es obligatorio."; // validación agregada
     if (!description.trim()) e.description = "Descripción del problema es obligatoria.";
     // Simple email regex
     const emailRegex = /^\S+@\S+\.\S+$/;
@@ -101,7 +102,7 @@ export default function Formulario() {
     setPosition("");
     setEmail("");
     setPhone("");
-    setRequestType(requestOptions[0]);
+    setRequestType(""); // vuelve al placeholder
     setOtherRequest("");
     setDescription("");
     setFile(null);
@@ -111,7 +112,7 @@ export default function Formulario() {
 
   return (
     <div className="form-container">
-      <h2>Registro de Requerimiento TIC</h2>
+      <h2 className="align-center ">REGISTRO DE REQUERIMIENTO TIC</h2>
       <form onSubmit={handleSubmit} noValidate>
         <label>
           Nombre *
@@ -155,12 +156,14 @@ export default function Formulario() {
         <label>
           Tipo de requerimiento *
           <select value={requestType} onChange={(e) => setRequestType(e.target.value)}>
+            <option value="">-- Seleccione un requerimiento --</option>
             {requestOptions.map((opt) => (
               <option key={opt} value={opt}>
                 {opt}
               </option>
             ))}
           </select>
+          {errors.requestType && <span className="error">{errors.requestType}</span>}
         </label>
 
         {requestType === "Otros" && (
