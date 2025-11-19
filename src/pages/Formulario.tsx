@@ -128,12 +128,20 @@ export default function Formulario() {
           Dirección / Área
           <select value={address} onChange={(e) => setAddress(e.target.value)}>
             <option value="">-- Seleccione un área --</option>
-            <option value="Dirección General">Dirección General</option>
-            <option value="Área Técnica">Área Técnica</option>
-            <option value="Oficina Administrativa">Oficina Administrativa</option>
-            <option value="Otro">Otro</option>
+            <option value="Dirección General">Tecnologías De La Información Y Comunicación</option>
+            <option value="Área Técnica">Dirección De Información Hidrometeorológica</option>
+            <option value="Oficina Administrativa">Dirección De Administración De Recursos Humanos</option>
+            <option value="Oficina Administrativa">Dirección Administrativa Financiera</option>
+            <option value="Oficina Administrativa">Dirección Ejecutiva</option>
+            <option value="Oficina Administrativa">Dirección De Asesoría Jurídica</option>
+            <option value="Oficina Administrativa">Dirección De Comunicación Social</option>
+            <option value="Oficina Administrativa">Dirección De Planificación</option>
+            <option value="Oficina Administrativa">Dirección De Pronósticos Y Alertas</option>
+            <option value="Oficina Administrativa">Dirección De Estudios, Investigación Y Desarrollo Hidrometeorológico</option>
+            <option value="Oficina Administrativa">Dirección De La Red Nacional De Observación Hidrometeorológica</option>
+            <option value="Oficina Administrativa">Laboratorio Nacional De Calidad De Agua Y Sedimentos</option>
+            
           </select>
-          <small className="note">(Reemplazar por catálogo institucional si está disponible)</small>
         </label>
 
         <label>
@@ -228,7 +236,7 @@ export default function Formulario() {
               <strong>Archivo adjunto:</strong> {submitted.fileName}
             </p>
           )}
-          <p className="success">Ticket creado y listado para el personal TIC (simulado).</p>
+          <p className="success">Ticket creado exitosamente! Por favor no olvidar su codigo de Ticket para ver su estado.</p>
         </div>
       )}
     </div>
