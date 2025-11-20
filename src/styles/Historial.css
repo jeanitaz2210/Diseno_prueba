@@ -76,7 +76,8 @@
 }
 
 .btn-accent {
-    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    background: linear-gradient(90deg );
+    background-color: #34d399   ;
     color: #022;
     border: none;
     padding: 10px 14px;
