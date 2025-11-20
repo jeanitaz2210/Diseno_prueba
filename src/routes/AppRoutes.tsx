@@ -1,6 +1,9 @@
 import { Route, Routes } from "react-router-dom"
-import Home from "../pages/Home";
 import Formulario from "../pages/Formulario";
+import Home from "../pages/Home";
+import Historial_tickets from "../pages/Historial_tickets";
+import Admin from "../pages/admin";
+import AdminLogin from "../pages/Home_Admin";
 
 
 const AppRoutes = () => {
@@ -8,6 +11,10 @@ const AppRoutes = () => {
         <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/formulario" element={<Formulario/>} />
+            <Route path="/listado" element={<Historial_tickets/>} />
+            <Route path="/entraradmin" element={<Admin/>} />
+            <Route path="/admin" element={<AdminLogin/>} />
+            
         </Routes>
     )
 }
