@@ -3,10 +3,10 @@ import '../styles/App.css';
 const Home = () => {
     return (
         <>
-            <div className="flex flex-col lg:flex-row items-center justify-center bg-gradient-to-br from-sky-100 via-indigo-200 to-indigo-400">
+            <div className="min-h-screen flex flex-col lg:flex-row items-center justify-center bg-gradient-to-br from-sky-100 via-indigo-200 to-indigo-400">
 
-                {/* Columna izquierda (logo) */}
-                <div className="lg:w-2/5 w-full flex items-center justify-center px-10 py-10 bg-transparent">
+                {/* Columna izquierda (40%) */}
+                <div className="lg:w-2/5 w-full flex items-center justify-center p-8 bg-transparent">
                     <img
                         src="../src/assets/lgo.png"
                         alt="Logo INAMHI"
@@ -14,9 +14,9 @@ const Home = () => {
                     />
                 </div>
 
-                {/* Columna derecha */}
+                {/* Columna derecha más grande (60%), centrada */}
                 <div className="lg:w-3/5 w-full flex flex-col justify-center items-center px-8 py-16">
-                    <div className="text-center max-w-xl">
+                    <div className="max-w text-center">
                         <h1 className="text-5xl font-bold text-blue-700 leading-tight mb-6 drop-shadow-lg">
                             Bienvenido al Sistema de Soporte Técnico INAMHI
                         </h1>

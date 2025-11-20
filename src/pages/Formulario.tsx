@@ -53,7 +53,8 @@ export default function Formulario() {
 
   const validate = () => {
     const e: Record<string, string> = {};
-    if (!name.trim()) e.name = "El Nombre y Apellido es obligatorio.";
+    if (!name.trim()) e.name = "El Nombre es obligatorio.";
+    if (!last.trim()) e.last = "El Apellido es obligatorio.";
     if (!position.trim()) e.position = "Cargo es obligatorio.";
     if (!requestType) e.requestType = "El tipo de requerimiento es obligatorio."; // validación agregada
     if (!description.trim()) e.description = "Descripción del problema es obligatoria.";
@@ -95,6 +96,15 @@ export default function Formulario() {
     console.log("Ticket creado:", ticket);
     setSubmitted(ticket);
 
+    try {
+      const raw = localStorage.getItem("tickets");
+      const arr = raw ? JSON.parse(raw) : [];
+      arr.push(ticket);
+      localStorage.setItem("tickets", JSON.stringify(arr));
+    } catch (err) {
+      console.warn("No se pudo guardar el ticket en localStorage:", err);
+    }
+
     // Opcional: limpiar formulario
     setName("");
     setLast("");
@@ -116,13 +126,13 @@ export default function Formulario() {
       <form onSubmit={handleSubmit} noValidate>
         <label>
           Nombre *
-          <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Juan" />
+          <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Jean" />
           {errors.name && <span className="error">{errors.name}</span>}
         </label>
         <label>
           Apellido *
-          <input value={last} onChange={(e) => setLast(e.target.value)} type="text" placeholder="Alvarado" />
-          {errors.name && <span className="error">{errors.name}</span>}
+          <input value={last} onChange={(e) => setLast(e.target.value)} type="text" placeholder="Itaz" />
+          {errors.last && <span className="error">{errors.last}</span>}
         </label>
         <label >
           Dirección / Área
@@ -207,8 +217,8 @@ export default function Formulario() {
           <input value={observations} onChange={(e) => setObservations(e.target.value)} type="text" />
         </label>
 
-        <div className="bg-blue-500 text-black-700 font-semibold py-3 px-8 rounded-full shadow-md hover:bg-blue-400 transition duration-300">
-          <button type="submit" >Enviar requerimiento</button>
+        <div className="actions form-full">
+          <button type="submit" className="submit-btn">Enviar requerimiento</button>
         </div>
       </form>
 

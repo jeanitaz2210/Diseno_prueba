@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom"
-import Home from "../pages/Home";
 import Formulario from "../pages/Formulario";
+import Home from "../pages/Home";
+import Historial_tickets from "../pages/Historial_tickets";
 
 
 const AppRoutes = () => {
@@ -8,6 +9,7 @@ const AppRoutes = () => {
         <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/formulario" element={<Formulario/>} />
+            <Route path="/listado" element={<Historial_tickets/>} />
         </Routes>
     )
 }
