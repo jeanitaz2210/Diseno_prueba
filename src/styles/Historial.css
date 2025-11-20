@@ -1,0 +1,201 @@
+:root {
+    --bg: #060b18;
+    --card: rgba(255,255,255,0.04);
+    --accent: #6ee7b7;
+    --accent-2: #34d399;
+    --danger: #ef4444;
+    --text: #e2e8f0;
+    --muted: #9aa4b2;
+}
+
+/* Fondo suave animado */
+/* Solo afecta historial */
+
+
+
+.historial-container {
+    background: radial-gradient(circle at 20% 20%, #0a1228, #050912 70%);
+    background-size: 200% 200%;
+    animation: bgMove 10s ease-in-out infinite;
+}
+@keyframes bgMove {
+    0% { background-position: 0 0; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0 0; }
+}
+
+/* Contenedor principal */
+.historial-container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 26px;
+    background: var(--card);
+    backdrop-filter: blur(12px);
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+    color: #060b18;
+}
+
+.animate-fadein {
+    animation: fadeIn 0.7s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 18px;
+}
+
+/* Controles */
+
+.top-controls {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.input-search {
+    flex: 1;
+    padding: 11px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.945);
+    color: #060b18;
+    transition: .2s ease;
+}
+
+.input-search:focus {
+    box-shadow: 0 0 0 3px rgba(110,231,183,0.25);
+    transform: scale(1.02);
+}
+
+.btn-accent {
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    color: #022;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s ease;
+}
+.btn-accent:hover { transform: translateY(-2px); }
+
+.btn-danger {
+    background: rgba(255,50,50,0.15);
+    color: var(--danger);
+    border: 1px solid rgba(255,50,50,0.25);
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+.btn-danger:hover { background: rgba(255,50,50,0.25); }
+
+/* Tabla */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.ticket-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ticket-table th {
+    padding: 12px;
+    text-align: left;
+    color: #060b18;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.ticket-table td {
+    padding: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Filas animadas */
+.row-anim {
+    animation: slideUp .45s ease both;
+    opacity: 0;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(14px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Botones */
+
+.actions {
+    text-align: center;
+}
+
+.btn-view, .btn-delete {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin-right: 8px;
+    transition: .2s ease;
+}
+
+.btn-view {
+    background: rgba(255,255,255,0.1);
+    color: var(--accent);
+}
+.btn-view:hover { transform: scale(1.05); }
+
+.btn-delete {
+    background: var(--danger);
+    color: white;
+}
+.btn-delete:hover { transform: scale(1.05); }
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .ticket-table, thead, tbody, tr, th, td {
+        display: block;
+    }
+
+    thead { display: none; }
+
+    tr {
+        margin-bottom: 15px;
+        padding: 14px;
+        border-radius: 12px;
+        background: rgba(255,255,255,0.04);
+    }
+
+    td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px dashed rgba(255,255,255,0.08);
+    }
+
+    td:last-child {
+        border-bottom: none;
+    }
+
+    .actions {
+        display: flex;
+        gap: 6px;
+        margin-top: 10px;
+    }
+}
