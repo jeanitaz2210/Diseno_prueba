@@ -27,7 +27,7 @@ return (
 </div>
 
 
-<button className="btn-ingresar">Ingresar</button>
+<a href="/admin" className="btn-ingresar">Ingresar</a>
 
 
 

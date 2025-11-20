@@ -24,7 +24,7 @@ const Home = () => {
             INGRESAR
           </a>
           <div>
-            <a href="/admin">
+            <a href="/adminlogin">
             <br />
               <p className="text-sm text-black mt-4 underline hover:text-text cursor-pointer">
                 ¿Eres administrador? Haz clic aquí

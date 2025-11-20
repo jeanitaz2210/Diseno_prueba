@@ -1,5 +1,7 @@
 
 import "../styles/Admin.css";
+import Navbar from "../components/CardNav";
+import logoImg from "../assets/lgo.png";
 
 const StatCard = ({ title, value, delta }: { title: string; value: string; delta?: string }) => (
     <div className="stat-card">
@@ -11,6 +13,8 @@ const StatCard = ({ title, value, delta }: { title: string; value: string; delta
 
 export default function Admin() {
     return (
+        <>
+        <Navbar logo={logoImg} items={[]} />
         <div className="admin-root">
             <aside className="admin-sidebar">
                 <img src="../src/assets/lgo.png"></img>
@@ -31,7 +35,7 @@ export default function Admin() {
                 <header className="topbar">
                     <div className="search">🔍 Search...</div>
                     <div className="top-actions">
-                        <button className="ghost">Cerrar Sesión</button>
+                        <a href="/adminlogin" className="ghost">Cerrar Sesión</a>
                         <div className="avatar">JD</div>
                     </div>
                 </header>
@@ -84,5 +88,6 @@ export default function Admin() {
                 </section>
             </main>
         </div>
+        </>
     );
 }
