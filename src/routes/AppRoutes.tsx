@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom"
 import Formulario from "../pages/Formulario";
 import Home from "../pages/Home";
 import Historial_tickets from "../pages/Historial_tickets";
-import Admin from "../pages/admin";
+import Admin from "../pages/Admin";
 import AdminLogin from "../pages/Home_Admin";
 
 
