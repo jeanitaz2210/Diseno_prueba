@@ -125,17 +125,17 @@ export default function Formulario() {
   };
 
   return (
-    
-    
+
+
     <div className="form-container">
 
-<div className="header-actions">
-  <button className="view-tickets-btn" onClick={() => setShowModal(true)}>
-    Ver Tickets
-  </button>
-</div>
+      <div className="header-actions">
+        <button className="view-tickets-btn" onClick={() => setShowModal(true)}>
+          Ver Tickets
+        </button>
+      </div>
 
-{showModal && <TicketsModal onClose={() => setShowModal(false)} />}
+      {showModal && <TicketsModal onClose={() => setShowModal(false)} />}
 
 
 
@@ -143,14 +143,18 @@ export default function Formulario() {
       <form onSubmit={handleSubmit} noValidate>
         <label>
           Nombre *
-          <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Ingrese sus nombres completos" />
+          <input
+            value={name} onChange={(e) => { const onlyLetters = e.target.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ ]/g, ""); setName(onlyLetters); }} type="text" placeholder="Ingrese sus nombres completos" />
           {errors.name && <span className="error">{errors.name}</span>}
         </label>
+
         <label>
           Apellido *
-          <input value={last} onChange={(e) => setLast(e.target.value)} type="text" placeholder="Ingrese sus apellidos completos" />
+          <input
+            value={last} onChange={(e) => { const onlyLetters = e.target.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ ]/g, ""); setLast(onlyLetters); }} type="text" placeholder="Ingrese sus apellidos completos" />
           {errors.last && <span className="error">{errors.last}</span>}
         </label>
+
         <label >
           Dirección / Área
           <select value={address} onChange={(e) => setAddress(e.target.value)}>
@@ -167,15 +171,19 @@ export default function Formulario() {
             <option value="Oficina Administrativa">Dirección De Estudios, Investigación Y Desarrollo Hidrometeorológico</option>
             <option value="Oficina Administrativa">Dirección De La Red Nacional De Observación Hidrometeorológica</option>
             <option value="Oficina Administrativa">Laboratorio Nacional De Calidad De Agua Y Sedimentos</option>
-            
+
           </select>
         </label>
 
         <label>
           Cargo *
-          <input value={position} onChange={(e) => setPosition(e.target.value)} type="text"  placeholder="Ingrese su cargo"/>
+          <input
+            value={position}
+            onChange={(e) => {
+              const onlyLetters = e.target.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ ]/g, "");setPosition(onlyLetters);}} type="text" placeholder="Ingrese su cargo" />
           {errors.position && <span className="error">{errors.position}</span>}
         </label>
+
 
         <label>
           Correo institucional *
@@ -185,10 +193,22 @@ export default function Formulario() {
 
         <label>
           Teléfono / Extensión
-          <input value={phone} onChange={(e) => setPhone(e.target.value)} type="text" placeholder="Ingrese su numero telefonico"/>
+          <input
+            value={phone}
+            onChange={(e) => {
+              // Solo números
+              const onlyNums = e.target.value.replace(/\D/g, ""); if (onlyNums.length <= 10) {
+                setPhone(onlyNums);
+              }
+            }}
+            type="text"
+            placeholder="Ingrese su número telefónico"
+            maxLength={10}
+          />
         </label>
 
-        <label> 
+
+        <label>
           Tipo de requerimiento *
           <select value={requestType} onChange={(e) => setRequestType(e.target.value)}>
             <option value="">-- Seleccione un requerimiento --</option>
@@ -231,12 +251,12 @@ export default function Formulario() {
 
         <label>
           Observaciones adicionales
-          <input value={observations} onChange={(e) => setObservations(e.target.value)} type="text" placeholder="Ingrese observaciones adicionales (opcional)"/>
+          <input value={observations} onChange={(e) => setObservations(e.target.value)} type="text" placeholder="Ingrese observaciones adicionales (opcional)" />
         </label>
 
-       <div className="actions">
-  <button type="submit" className="submit-btn">ENVIAR REQUERIMIENTO</button>
-</div>
+        <div className="actions">
+          <button type="submit" className="submit-btn">ENVIAR REQUERIMIENTO</button>
+        </div>
 
       </form>
 
